@@ -1,0 +1,40 @@
+# Memoization in Deep Learning
+
+**Memoization** is an optimization technique that can be used to improve the efficiency of algorithms, especially in deep learning and recursive computations. It involves storing the results of expensive function calls and reusing them when the same inputs occur again, which can significantly speed up computations.
+
+## How Memoization Works
+
+In memoization, a data structure (often a dictionary or an array) is created to store the results of function calls. When the function is invoked, it checks if the result for the given input is already stored. If it is, it returns the stored result; if not, it computes the result, stores it, and then returns it.
+
+### Benefits of Memoization
+- **Reduces Time Complexity:** Avoids repeated calculations, which can drastically lower the time complexity of recursive algorithms.
+- **Improves Performance:** Particularly useful in algorithms with overlapping subproblems, such as dynamic programming.
+
+## Memoization in Deep Learning
+
+In deep learning, memoization can optimize the computation of forward and backward passes in models, especially when dealing with recurrent neural networks (RNNs) or other architectures where states are reused over multiple time steps.
+
+### Example: Utilizing Memoization in Neural Networks
+
+In RNNs, memoization can help store hidden states across time steps, preventing the recomputation of states that have already been calculated. This can enhance training efficiency, particularly with long sequences.
+
+#### Example: Fibonacci Sequence with Memoization
+
+The Fibonacci sequence is a classic example where memoization can improve performance. The Fibonacci numbers are defined as follows:
+
+- \( F(0) = 0 \)
+- \( F(1) = 1 \)
+- For \( n \geq 2 \), \( F(n) = F(n-1) + F(n-2) \)
+
+### Recursive Fibonacci without Memoization
+
+The naive recursive solution for Fibonacci calculates the same values multiple times, leading to exponential time complexity \( O(2^n) \).
+
+```python
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+# Example Usage
+print(fibonacci(6))  # Output: 8
