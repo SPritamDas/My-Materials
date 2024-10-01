@@ -72,26 +72,26 @@ Backpropagation is the algorithm used to minimize the error of the network by ad
    - Backpropagation works by calculating the gradient of the loss with respect to the weights using the **chain rule** of calculus.
    
    - The gradient for the weight \( W \) at layer \( l \) is computed as:
-     \[
-     \frac{\partial \mathcal{L}}{\partial W^{(l)}} = \frac{\partial \mathcal{L}}{\partial a^{(l)}} \cdot \frac{\partial a^{(l)}}{\partial z^{(l)}} \cdot \frac{\partial z^{(l)}}{\partial W^{(l)}}
-     \]
-     - Where:
-       - \( \frac{\partial \mathcal{L}}{\partial a^{(l)}} \) is the gradient of the loss with respect to the activation at layer \( l \).
-       - \( \frac{\partial a^{(l)}}{\partial z^{(l)}} \) is the derivative of the activation function.
-       - \( \frac{\partial z^{(l)}}{\partial W^{(l)}} \) is the derivative of the weighted sum with respect to the weight.
+   \[
+   \frac{\partial \mathcal{L}}{\partial W^{(l)}} = \frac{\partial \mathcal{L}}{\partial a^{(l)}} \cdot \frac{\partial a^{(l)}}{\partial z^{(l)}} \cdot \frac{\partial z^{(l)}}{\partial W^{(l)}}
+   \]
+   - Where:
+     - \( \frac{\partial \mathcal{L}}{\partial a^{(l)}} \) is the gradient of the loss with respect to the activation at layer \( l \).
+     - \( \frac{\partial a^{(l)}}{\partial z^{(l)}} \) is the derivative of the activation function.
+     - \( \frac{\partial z^{(l)}}{\partial W^{(l)}} \) is the derivative of the weighted sum with respect to the weight.
    
 3. **Weight Update:**
    - Once the gradient is calculated, the weights are updated using **gradient descent** or some variant like **Adam**:
-     \[
-     W^{(l)} = W^{(l)} - \eta \frac{\partial \mathcal{L}}{\partial W^{(l)}}
-     \]
-     - Where \( \eta \) is the learning rate, a small positive number.
+   \[
+   W^{(l)} = W^{(l)} - \eta \frac{\partial \mathcal{L}}{\partial W^{(l)}}
+   \]
+   - Where \( \eta \) is the learning rate, a small positive number.
 
 4. **Bias Update:**
    - Similarly, the bias terms are updated using the gradient with respect to the bias:
-     \[
-     b^{(l)} = b^{(l)} - \eta \frac{\partial \mathcal{L}}{\partial b^{(l)}}
-     \]
+   \[
+   b^{(l)} = b^{(l)} - \eta \frac{\partial \mathcal{L}}{\partial b^{(l)}}
+   \]
 
 ### Chain Rule for Backpropagation
 
