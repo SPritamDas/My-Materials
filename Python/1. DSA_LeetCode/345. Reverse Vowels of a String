@@ -1,0 +1,44 @@
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        vowels = {'a':1,'e':1,'i':1,'o':1,'u':1}
+        vowel_list=[]
+        result = []
+        for i in range(len(s)):
+            if s[i].lower() in vowels.keys():
+                vowel_list.append(s[i])
+        for i in range(len(s)):
+            if s[i].lower() in vowels.keys():
+                result.append(vowel_list[-1])
+                vowel_list.pop()
+            else:
+                result.append(s[i])
+        return ''.join(result)
+
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        left = 0
+        right = len(s) - 1
+        s = list(s)
+        vowels = {'a':1,'A':1,'e':1,'E':1,'i':1,'I':1,'O':1,'o':1,'U':1,'u':1}
+        while left < right:
+            while s[left] not in vowels.keys() and left < right:
+                left += 1
+            while s[right] not in vowels.keys() and left < right:
+                right -= 1
+            s[left], s[right] = s[right], s[left]
+            left += 1
+            right -= 1
+        return ''.join(s)
+
+
+Question:
+Given a string s, reverse only all the vowels in the string and return it.
+The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.
+Example 1:
+Input: s = "IceCreAm"
+Output: "AceCreIm"
+Explanation:
+The vowels in s are ['I', 'e', 'e', 'A']. On reversing the vowels, s becomes "AceCreIm".
+Example 2:
+Input: s = "leetcode"
+Output: "leotcede"
