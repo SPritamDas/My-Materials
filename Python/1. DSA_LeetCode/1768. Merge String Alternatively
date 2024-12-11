@@ -1,0 +1,38 @@
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        s = ""
+        min_l = min(len(word1),len(word2))
+        for i in range(min_l):
+            s = s + word1[i]
+            s = s + word2[i]
+        if len(word1)>len(word2):
+            s= s + word1[min_l:]
+        elif len(word1)<len(word2):
+            s= s + word2[min_l:]
+        return s
+
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        s = []
+        for i in range(min(len(word1),len(word2))):
+            s.append(word1[i])
+            s.append(word2[i])
+        if len(word1)>len(word2):
+            s= [*s,*word1[min(len(word1),len(word2)):]]
+        else:
+            s= [*s,*word2[min(len(word1),len(word2)):]]
+        return ''.join(s)
+
+import numpy as np
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        s = np.array([])
+        min_l = min(len(word1),len(word2))
+        for i in range(min_l):
+            s=np.append(s,word1[i])
+            s=np.append(s,word2[i])
+        if len(word1)>len(word2):
+            s= np.append(s,word1[min_l:])
+        else:
+            s= np.append(s,word2[min_l:])
+        return ''.join(s)       
