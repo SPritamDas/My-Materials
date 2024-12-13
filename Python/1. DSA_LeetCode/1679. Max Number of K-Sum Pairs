@@ -24,7 +24,7 @@ Count when sums == Traget
 
 If we do not compress the list, then also it will work. But some un necessary Computations.
 
-Code-1:
+Code-1: O(nlogn)
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
         nums = sorted(nums)
@@ -48,6 +48,26 @@ class Solution:
                 r -=1
             else:
                 l+=1
+        return c
+
+Code-2: 0(n
+class Solution:
+    def maxOperations(self, nums: List[int], k: int) -> int:
+        from collections import Counter
+        counter = Counter(nums)
+        c = 0 
+        for x in list(counter.keys()):
+            while counter[x] > 0 and counter[k - x] > 0:
+                if x == k - x: 
+                    if counter[x] > 1:
+                        c += 1
+                        counter[x] -= 2
+                    else:
+                        break
+                else:
+                    c += 1
+                    counter[x] -= 1
+                    counter[k - x] -= 1
         return c
 
 
